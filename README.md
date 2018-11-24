@@ -5,7 +5,7 @@ Elastic filebeat service installed on Alpine linux.
 ## Environment Variables
 
 FILEBEAT_VERSION = version of filebeat, default ```6.4.1```.
-LOGSTHOST = logstash host (and port) as output, default ```logstash:
+LOGSTHOST = logstash host (and port) as output, default ```logstash:5000```
 
 
 ## Filebeat.yml
