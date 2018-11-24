@@ -1,0 +1,33 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/logs/applogs/*.log
+  symlinks: true
+  fields:
+    docType: app-logs
+  document_type: app-logs
+  ignore_older: 72h
+  json.message_key: msg
+  json.keys_under_root: true
+  json.add_error_key: true
+
+# - type: log
+#   paths:
+#     - /var/log/nginx/*.log
+#   encoding: utf-8
+#   fields:
+#     docType: nginx-logs
+#   fields_under_root: true
+#   document_type: nginx-logs
+#   ignore_older: 72h
+
+output:
+  logstash:
+    hosts: ["${LOGSTHOST}"]
+    index: "logstash-%{+yyyy.MM.dd}"
+    bulk_max_size: 1024
+
+shipper:
+logging:
+  files:
+    rotateeverybytes: 10485760 # = 10MB
