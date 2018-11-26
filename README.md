@@ -1,6 +1,6 @@
-# Filebeat - Alpine
+# Go - Filebeat - Alpine
 
-Elastic filebeat service installed on Alpine linux.
+Go with Elastic filebeat service installed on Alpine linux.
 
 ## Environment Variables
 
@@ -10,7 +10,7 @@ LOGSTHOST = logstash host (and port) as output, default ```logstash:5000```
 
 ## Filebeat.yml
 
-Put your filebeat.yml and override current file inside container in ```/filebeat``` folder.
+```filebeat.yml``` located in root ( ```/``` ) direcotry. If you want to use your own, please put your file in root directory.
 
 ## How to share log volume
 
@@ -21,6 +21,7 @@ I.e : If you have a volume named ```logs-volume``` and mounted inside container 
 ```yaml
 filebeat.inputs:
 - type: log
+  # put your paths here
   paths:
     - /var/logs/applogs/*.log
   # if the target file is a symlink

@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM golang:1.11-alpine
 
 MAINTAINER Rosa Imantoro <rosaimantoro@gmail.com>
 
